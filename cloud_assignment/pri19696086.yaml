@@ -1,8 +1,19 @@
 imports:
-- path: defaultvm.jinja
+- path: instancegroup_main.jinja
+- path: instancetemplate_vm.jinja
+- path: healthcheck_main.jinja
+- path: network_main.jinja
+- path: subnetwork_default.jinja
+- path: firewall_internal.jinja
 
 resources:
-- name: vm1
-  type: defaultvm.jinja
+- name: network_main_a
+  type: network_main.jinja
+  
+- name: subnetwork_a_1
+  type: subnetwork_default.jinja
   properties:
-    zone: europe-west2-c
+    network: $(ref.network_main_a.selfLink)
+    region: europe-west2-a #London
+    ipCidrRange: 10.1.0.0/16 #65536 available addresses 10.1.x.x
+    
