@@ -1,0 +1,15 @@
+resources:
+- name: {{ env['name'] }}
+  type: compute.v1.instanceTemplate
+  properties:
+    properties:
+      machineType: [machine type]
+      canIpForward: true
+      properties:
+        zone: {{ properties['zone'] }}
+      disks:
+      - deviceName: bootdrive
+        type: PERSISTENT
+        autoDelete: true
+        initalizeParams:
+          sourceImage: 
