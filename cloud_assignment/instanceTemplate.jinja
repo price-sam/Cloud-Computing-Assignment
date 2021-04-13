@@ -1,9 +1,10 @@
 resources:
 - name: {{ env['name'] }}
+  description: Instance template for 
   type: compute.v1.instanceTemplate
   properties:
     properties:
-      machineType: [machine type]
+      machineType: zones/{{ properties['zone'] }}/machineTypes/n2d-standard-64
       canIpForward: true
       properties:
         zone: {{ properties['zone'] }}
@@ -12,4 +13,10 @@ resources:
         type: PERSISTENT
         autoDelete: true
         initalizeParams:
-          sourceImage: 
+          sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-minimal-1604-xenial-v20210330
+        networkInterfaces:
+        - network: global/networks/network_main
+          networkIP: [ip]
+        tags:
+          items: []
+         
