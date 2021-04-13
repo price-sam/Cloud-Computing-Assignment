@@ -2,7 +2,7 @@ resources:
 - name {{ env['name'] }}
   type: compute.v1.instanceGroupManager
   properties:
-    instanceTemplate: [TEMPLATE]
+    instanceTemplate $(ref.{{ properties['instanceTemplate']}}.selfLink)
     zone: {{ properties['zone'] }}
     targetSize: 2
     #Configure auto healing for optimal uptime
