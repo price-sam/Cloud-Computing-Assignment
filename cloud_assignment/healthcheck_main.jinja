@@ -1,0 +1,14 @@
+resources:
+- name: healthcheck_main
+  type: compute.v1.healthcheck
+  checkIntervalSec: 120
+  timeoutSec: 300
+  unhealthyThreshold: 2
+  healthyThreshold: 2
+  type: HTTP
+  httpHealthCheck:
+  - port: [int]
+    host: [str]
+    requestPath: [str]
+    
+  
