@@ -1,0 +1,12 @@
+resources:
+- name {{ env['name'] }}
+  type: compute.v1.instanceGroupManager
+  properties:
+    instanceTemplate: [TEMPLATE]
+    zone: {{ properties['zone'] }}
+    targetSize: 2
+    #Configure auto healing for optimal uptime
+    autoHealingPolicies:
+    - healthCheck: [ref]
+    initialDelaySec: 120
+  
