@@ -5,7 +5,7 @@ resources:
     #Reference to instancetemplate provided in yaml properties
     instanceTemplate $(ref.{{ properties['instanceTemplate'] }}.selfLink)
     zone: {{ properties['zone'] }}
-    targetSize: 2
+    targetSize: {{ properties['targetSize'] }}
     #Configure auto healing for optimal uptime
     autoHealingPolicies:
     - healthCheck: $(ref.healthcheck_main.selfLink)
