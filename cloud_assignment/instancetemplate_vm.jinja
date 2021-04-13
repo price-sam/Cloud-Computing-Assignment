@@ -16,7 +16,6 @@ resources:
           sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-minimal-1604-xenial-v20210330
         networkInterfaces:
         - network: global/networks/network_main
-          networkIP: [ip]
         tags:
-          items: []
+          items: {{ properties["tags"] }}
          
