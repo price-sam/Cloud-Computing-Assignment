@@ -7,7 +7,7 @@ resources:
     zone: {{ properties['zone'] }}
     targetSize: {{ properties['targetSize'] }}
     #Configure auto healing for optimal uptime
-    autoHealingPolicies:
-    - healthCheck: $(ref.healthcheck_main.selfLink)
-      initialDelaySec: 120
+    #autoHealingPolicies:
+    #- healthCheck: $(ref.healthcheck_main.selfLink)
+      #initialDelaySec: 120
   
