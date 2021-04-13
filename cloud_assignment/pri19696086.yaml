@@ -4,7 +4,7 @@ imports:
 - path: healthcheck_main.jinja
 - path: network_main.jinja
 - path: subnetwork_default.jinja
-- path: firewall_internal.jinja
+- path: firewall_template.jinja
 
 resources:
 - name: network_main_a
@@ -17,5 +17,24 @@ resources:
     region: europe-west2-a #London
     ipCidrRange: 10.1.0.0/16 #65536 available addresses 10.1.x.x
 
-- name: firewall
+- name: firewall_allowhttp
+  type: firewall_template.jinja
+  properties:
+    targetTags: ["http"]
+    IPProtocol: TCP
+    ports: ["80"]
+
+- name: web_server_vm
+  type: instancetemplate_vm.jinja
+  properties:
+    zone: europe-west2-a #London
+    tags: ["http"]
+  
+
+- name: instancegroup
+  type: instancegroup_main.jinja
+  properties:
+    instanceTemplate: $(ref.web_server_vm.selfLink)
+    targetSize: 2
+  
     
