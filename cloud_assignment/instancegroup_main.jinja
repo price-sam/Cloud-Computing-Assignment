@@ -7,6 +7,6 @@ resources:
     targetSize: 2
     #Configure auto healing for optimal uptime
     autoHealingPolicies:
-    - healthCheck: [ref]
-    initialDelaySec: 120
+    - healthCheck: $(ref.healthcheck_main.selfLink)
+      initialDelaySec: 120
   
