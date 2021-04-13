@@ -1,0 +1,8 @@
+imports:
+- path: defaultvm.jinja
+
+resources:
+- name: vm1
+  type: defaultvm.jinja
+  properties:
+    zone: europe-west2-c

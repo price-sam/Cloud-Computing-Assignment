@@ -1,0 +1,9 @@
+resources:
+-   name: {{ env['name'] }}
+    type: compute.v1.firewall
+    properties:
+        network: $(ref.network-main.selfLin)
+        sourceRanges: ["0.0.0.0/0"]
+        allowed:
+        -   IPProtocol: {{ properties["IPProtocol"] }}
+            ports: ['80']
