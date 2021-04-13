@@ -31,7 +31,7 @@ resources:
     tags: ["http"]
   
 
-- name: instancegroup
+- name: web_server_ig
   type: instancegroup_main.jinja
   properties:
     instanceTemplate: $(ref.web_server_vm.selfLink)
