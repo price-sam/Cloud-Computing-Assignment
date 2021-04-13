@@ -16,4 +16,6 @@ resources:
     network: $(ref.network_main_a.selfLink)
     region: europe-west2-a #London
     ipCidrRange: 10.1.0.0/16 #65536 available addresses 10.1.x.x
+
+- name: firewall
     
